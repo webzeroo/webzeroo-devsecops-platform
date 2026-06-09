@@ -2,9 +2,9 @@
 
 A modern Learning Management System built with **Next.js 14** and **Firebase**.
 
-## ✨ Features
+##  Features
 
-### 🛡️ Admin Portal
+###  Admin Portal
 - **Dashboard** — Stats cards + Analytics (Users, Assessment Results, Course Progress)
 - **Users** — View all users with role badges, sort, paginate
 - **Courses** — Create, Edit, Delete, Publish courses with thumbnails
@@ -13,7 +13,7 @@ A modern Learning Management System built with **Next.js 14** and **Firebase**.
 - **Reports** — Score distribution charts, pass/fail analytics, results table
 - **Settings** — Platform configuration
 
-### 🎓 Learner Portal
+### Learner Portal
 - **Dashboard** — Enrolled courses, completed assessments, average score
 - **My Courses** — Browse & enroll in published courses
 - **Lessons** — Access course materials (video, PDF, PPT, DOCX)
@@ -21,29 +21,13 @@ A modern Learning Management System built with **Next.js 14** and **Firebase**.
 - **My Results** — View all scores and pass/fail history
 - **Profile** — Update display name
 
-### 🔐 Authentication
+###  Authentication
 - Firebase Authentication (Email + Password)
 - Role-based access control (Admin / Learner)
 - Protected routes with auto-redirect
 
-## 🚀 Quick Start
-
-1. **Clone the Repo**
-   ```bash
-   npm install
-   ```
-
-2. **Configure Environment**
-   Create a `.env.local` file with your Firebase credentials.
-
-3. **Run Locally**
-   ```bash
-   npm run dev
-   ```
-   Open [http://localhost:3000](http://localhost:3000)
-
-## 🔄 Integration
+##  Integration
 This project is configured to integrate with standard CI/CD pipelines for automated testing, linting, and deployment.
 
-## 📜 License
+##  License
 MIT License © 2026 WebZeroo

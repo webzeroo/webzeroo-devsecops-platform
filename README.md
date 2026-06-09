@@ -26,22 +26,6 @@ A modern Learning Management System built with **Next.js 14** and **Firebase**.
 - Role-based access control (Admin / Learner)
 - Protected routes with auto-redirect
 
-## 🚀 Quick Start
-
-1. **Clone the Repo**
-   ```bash
-   npm install
-   ```
-
-2. **Configure Environment**
-   Create a `.env.local` file with your Firebase credentials.
-
-3. **Run Locally**
-   ```bash
-   npm run dev
-   ```
-   Open [http://localhost:3000](http://localhost:3000)
-
 ## 🔄 Integration
 This project is configured to integrate with standard CI/CD pipelines for automated testing, linting, and deployment.
 

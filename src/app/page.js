@@ -33,15 +33,7 @@ export default function LoginPage() {
     // Redirect handled by useEffect above
   };
 
-  const fillCredentials = (type) => {
-    if (type === 'admin') {
-      setEmail('admin@webzeroo.com');
-      setPassword('admin123');
-    } else {
-      setEmail('learner@webzeroo.com');
-      setPassword('learner123');
-    }
-  };
+
 
   if (loading) {
     return (
@@ -145,27 +137,7 @@ export default function LoginPage() {
               )}
             </button>
 
-            <div className="quick-access">
-              <p className="quick-label">Quick Access (Demo)</p>
-              <div className="quick-btns">
-                <button
-                  type="button"
-                  className="btn btn-secondary btn-sm"
-                  onClick={() => fillCredentials('admin')}
-                  id="quick-admin-btn"
-                >
-                  🛡️ Admin Login
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-secondary btn-sm"
-                  onClick={() => fillCredentials('learner')}
-                  id="quick-learner-btn"
-                >
-                  🎓 Learner Login
-                </button>
-              </div>
-            </div>
+
           </form>
         </div>
       </div>
@@ -341,26 +313,7 @@ export default function LoginPage() {
           margin-top: 0.5rem;
         }
 
-        .quick-access {
-          margin-top: 2rem;
-          padding-top: 1.5rem;
-          border-top: 1px solid var(--border-light);
-          text-align: center;
-        }
 
-        .quick-label {
-          font-size: 0.75rem;
-          color: var(--text-tertiary);
-          text-transform: uppercase;
-          letter-spacing: 0.1em;
-          margin-bottom: 0.75rem;
-        }
-
-        .quick-btns {
-          display: flex;
-          gap: 0.75rem;
-          justify-content: center;
-        }
 
         @media (max-width: 768px) {
           .login-container {

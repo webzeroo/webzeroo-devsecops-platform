@@ -10,6 +10,10 @@ jobs:
   lint-test-build:
     name: Lint, Test & Build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
 
     strategy:
       matrix:

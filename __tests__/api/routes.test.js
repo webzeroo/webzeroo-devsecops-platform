@@ -36,7 +36,7 @@ describe('API Routes', () => {
       const body = await response.json();
       
       expect(response.status).toBe(400);
-      expect(body.error).toBe('ID token is required');
+      expect(body.error).toBe('Invalid or missing ID token');
     });
   });
 

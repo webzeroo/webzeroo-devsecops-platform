@@ -25,16 +25,27 @@ jest.mock('@/lib/firebaseAdmin', () => {
           ],
           size: 2,
         })),
-        doc: jest.fn(() => ({
-          get: jest.fn(async () => ({ 
-            exists: true, 
-            data: () => ({ role: 'admin', email: 'admin@webzeroo.com' }) 
-          })),
+        doc: jest.fn((docId) => ({
+          get: jest.fn(async () => {
+            if (docId === 'learner-uid') {
+              return { exists: true, data: () => ({ role: 'learner', email: 'learner@webzeroo.com' }) };
+            }
+            if (docId === '123') { // Mock for Assessment Doc
+              return { exists: true, data: () => ({ questions: [{ correctAnswer: 'A', marks: 10 }] }) };
+            }
+            return { exists: true, data: () => ({ role: 'admin', email: 'admin@webzeroo.com' }) };
+          }),
           set: jest.fn(async () => true),
         })),
         add: jest.fn(async () => ({ id: 'new-document-id' })),
         where: jest.fn(() => ({
-          get: jest.fn(async () => ({ docs: [], size: 0 })),
+          get: jest.fn(async () => ({
+            docs: [
+              { id: '1', data: () => ({ title: 'Secure React Course', role: 'admin' }) },
+              { id: '2', data: () => ({ title: 'DevSecOps Masterclass', role: 'learner' }) }
+            ],
+            size: 2,
+          })),
         })),
       })),
     },
@@ -87,9 +98,9 @@ describe('API Security & Functional Tests', () => {
       const body = await response.json();
       
       expect(response.status).toBe(200);
-      expect(Array.isArray(body)).toBe(true);
-      expect(body.length).toBe(2);
-      expect(body[0].title).toBe('Secure React Course');
+      expect(Array.isArray(body.courses)).toBe(true);
+      expect(body.courses.length).toBe(2);
+      expect(body.courses[0].title).toBe('Secure React Course');
     });
   });
 
@@ -109,13 +120,13 @@ describe('API Security & Functional Tests', () => {
       const { POST } = require('@/app/api/submit/route');
       const request = { 
         headers: { get: () => 'Bearer valid-learner-token' },
-        json: async () => ({ answers: { q1: 'A' }, courseId: '123' })
+        json: async () => ({ answers: { q1: 'A' }, assessmentId: '123' })
       };
       const response = await POST(request);
       const body = await response.json();
       
       expect(response.status).toBe(200);
-      expect(body.message).toBe('Assessment submitted successfully');
+      expect(body.success).toBe(true);
     });
   });
 
@@ -138,8 +149,8 @@ describe('API Security & Functional Tests', () => {
       const body = await response.json();
       
       expect(response.status).toBe(200);
-      expect(body).toHaveProperty('totalUsers');
-      expect(body).toHaveProperty('totalCourses');
+      expect(body.report).toHaveProperty('totalUsers');
+      expect(body.report).toHaveProperty('totalCourses');
     });
   });
 });

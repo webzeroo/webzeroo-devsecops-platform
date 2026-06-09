@@ -16,6 +16,15 @@ const customJestConfig = {
     '!src/**/*.d.ts',
     '!src/**/layout.js',
   ],
+  reporters: [
+    'default',
+    ['jest-html-reporter', {
+      pageTitle: 'WebZero LMS API Security Report',
+      outputPath: './jest-report.html',
+      includeFailureMsg: true,
+      includeConsoleLog: true
+    }]
+  ],
 };
 
 module.exports = createJestConfig(customJestConfig);

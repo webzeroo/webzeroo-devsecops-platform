@@ -41,6 +41,7 @@ if (keyPath && fs.existsSync(keyPath)) {
 
 const app = initializeApp({
   credential: cert(serviceAccount),
+  projectId: serviceAccount.project_id
 });
 
 const auth = getAuth(app);

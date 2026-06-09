@@ -10,11 +10,7 @@ export default function AdminUsersPage() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchUsers();
-  }, []);
-
-  const fetchUsers = async () => {
+  async function fetchUsers() {
     try {
       const snap = await getDocs(collection(db, 'users'));
       const list = snap.docs.map(d => ({
@@ -29,7 +25,13 @@ export default function AdminUsersPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+  
 
   const columns = [
     { key: 'displayName', label: 'Name' },

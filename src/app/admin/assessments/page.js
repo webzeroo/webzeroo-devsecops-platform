@@ -19,7 +19,7 @@ export default function AdminAssessmentsPage() {
 
   useEffect(() => { fetchData(); }, []);
 
-  const fetchData = async () => {
+  async function fetchData() {
     try {
       const [aSnap, cSnap] = await Promise.all([
         getDocs(collection(db, 'assessments')),

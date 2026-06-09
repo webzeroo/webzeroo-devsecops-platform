@@ -14,9 +14,7 @@ export default function AdminReportsPage() {
   const [stats, setStats] = useState({ total: 0, passed: 0, failed: 0, avgScore: 0 });
   const [chartData, setChartData] = useState(null);
 
-  useEffect(() => { fetchResults(); }, []);
-
-  const fetchResults = async () => {
+  async function fetchResults() {
     try {
       const [resultsSnap, assessmentsSnap] = await Promise.all([
         getDocs(collection(db, 'results')),
@@ -29,7 +27,7 @@ export default function AdminReportsPage() {
 
       const list = resultsSnap.docs.map(d => {
         const data = d.data();
-        const assessment = assessments[data.assessmentId] || {};
+        const assessment = assessments[data.assessmentId] || {}
         return {
           id: d.id,
           ...data,
@@ -79,7 +77,11 @@ export default function AdminReportsPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }
+
+  useEffect(() => {
+    fetchResults();
+  }, []);
 
   const columns = [
     { key: 'learnerEmail', label: 'Learner' },

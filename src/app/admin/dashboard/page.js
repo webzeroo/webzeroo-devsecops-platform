@@ -23,11 +23,7 @@ export default function AdminDashboard() {
   });
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchDashboardData();
-  }, []);
-
-  const fetchDashboardData = async () => {
+  async function fetchDashboardData() {
     try {
       // Fetch all collections
       const [usersSnap, coursesSnap, lessonsSnap, assessmentsSnap, resultsSnap] = await Promise.all([
@@ -113,7 +109,13 @@ export default function AdminDashboard() {
     } finally {
       setLoading(false);
     }
-  };
+  }
+
+  useEffect(() => {
+    fetchDashboardData();
+  }, []);
+
+  
 
   return (
     <>

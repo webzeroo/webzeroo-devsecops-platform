@@ -16,7 +16,7 @@ export default function AdminLessonsPage() {
 
   useEffect(() => { fetchData(); }, []);
 
-  const fetchData = async () => {
+  async function fetchData() {
     try {
       const [lessonsSnap, coursesSnap] = await Promise.all([
         getDocs(collection(db, 'lessons')),

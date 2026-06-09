@@ -18,7 +18,7 @@ export default function AdminCoursesPage() {
 
   useEffect(() => { fetchCourses(); }, []);
 
-  const fetchCourses = async () => {
+  async function fetchCourses() {
     try {
       const snap = await getDocs(collection(db, 'courses'));
       setCourses(snap.docs.map(d => ({ id: d.id, ...d.data() })));

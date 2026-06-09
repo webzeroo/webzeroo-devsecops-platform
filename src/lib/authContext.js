@@ -65,7 +65,7 @@ export function AuthProvider({ children }) {
       const result = await signInWithEmailAndPassword(auth, email, password);
       return { success: true, user: result.user };
     } catch (error) {
-      let message = 'Login failed. Please try again.';
+      let message;
       switch (error.code) {
         case 'auth/user-not-found':
           message = 'No account found with this email.';
@@ -83,7 +83,7 @@ export function AuthProvider({ children }) {
           message = 'Invalid email or password.';
           break;
         default:
-          message = error.message;
+          message = 'Login failed. Please try again.';
       }
       return { success: false, error: message };
     }

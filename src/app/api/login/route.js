@@ -6,10 +6,11 @@ export const dynamic = 'force-dynamic';
 // POST /api/login - Verify Firebase token and return user data
 export async function POST(request) {
   try {
-    const { idToken } = await request.json();
+    const body = await request.json();
+    const idToken = body?.idToken;
 
-    if (!idToken) {
-      return NextResponse.json({ error: 'ID token is required' }, { status: 400 });
+    if (!idToken || typeof idToken !== 'string') {
+      return NextResponse.json({ error: 'Invalid or missing ID token' }, { status: 400 });
     }
 
     // Verify the token with Firebase Admin

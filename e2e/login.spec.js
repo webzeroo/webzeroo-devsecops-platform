@@ -7,7 +7,7 @@ test('Login page renders correctly', async ({ page }) => {
   await expect(page).toHaveTitle(/WebZero LMS/);
 
   // Expect the login heading
-  await expect(page.locator('h2')).toHaveText('Welcome to WebZero');
+  await expect(page.locator('h2')).toHaveText('Welcome Back');
 
   // Expect email and password inputs to be visible
   await expect(page.locator('input[type="email"]')).toBeVisible();

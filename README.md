@@ -1,4 +1,4 @@
-# 🎓 WebZero LMS Platform
+#  WebZero LMS Platform
 
 A modern Learning Management System built with **Next.js 14** and **Firebase**.
 
@@ -48,7 +48,7 @@ The pipeline intelligently switches SAST tools based on the repository's visibil
 ### 5. DAST (Dynamic Application Security Testing)
 - **OWASP ZAP**: After the application compiles, the pipeline boots a background Next.js server and launches the official OWASP ZAP Docker container against `localhost:3000` to actively attack the live endpoints for XSS, CSRF, and Injection vulnerabilities.
 
-### 📊 Executive Summary Dashboard
+###  Executive Summary Dashboard
 Upon completion, the pipeline generates a dynamic Markdown dashboard summarizing the security posture of the current commit, accompanied by downloadable HTML reports for Jest, Playwright, and ZAP.
 
 ##  License

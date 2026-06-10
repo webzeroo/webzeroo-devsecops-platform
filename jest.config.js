@@ -10,11 +10,21 @@ const customJestConfig = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
+  testMatch: ['**/__tests__/**/*.test.[jt]s?(x)'],
   testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/', '<rootDir>/e2e/'],
   collectCoverageFrom: [
     'src/**/*.{js,jsx}',
     '!src/**/*.d.ts',
     '!src/**/layout.js',
+  ],
+  reporters: [
+    'default',
+    ['jest-html-reporter', {
+      pageTitle: 'WebZero LMS API Security Report',
+      outputPath: './jest-report.html',
+      includeFailureMsg: true,
+      includeConsoleLog: true
+    }]
   ],
 };
 

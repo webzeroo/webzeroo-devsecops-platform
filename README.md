@@ -26,7 +26,7 @@ A modern Learning Management System built with **Next.js 14** and **Firebase**.
 - Role-based access control (Admin / Learner)
 - Protected routes with auto-redirect
 
-## 🛡️ DevSecOps Pipeline
+##  DevSecOps Pipeline
 
 This project is secured by a state-of-the-art **Automated DevSecOps Pipeline** via GitHub Actions. It implements a complete "Holy Trinity" of security checks on every Pull Request and Push to the `main` branch.
 

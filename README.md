@@ -51,5 +51,4 @@ The pipeline intelligently switches SAST tools based on the repository's visibil
 ###  Executive Summary Dashboard
 Upon completion, the pipeline generates a dynamic Markdown dashboard summarizing the security posture of the current commit, accompanied by downloadable HTML reports for Jest, Playwright, and ZAP.
 
-##  License
-MIT License © 2026 WebZeroo
+

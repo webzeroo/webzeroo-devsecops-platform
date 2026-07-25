@@ -1,4 +1,4 @@
-#  WebZero LMS 
+#  WebZero
 
 A modern Learning Management System built with **Next.js 14** and **Firebase**.
 
